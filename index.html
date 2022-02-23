@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 1 - Test 1</title>
+</head>
+<body>
+
+<!--1. Câu lệnh nào để hiển thị 1 hộp thoại.  Nêu cú pháp hiển thị tên bạn lên hộp thoại.-->
+<script>
+    alert('Nguyen Duc Thuong')
+</script>
+
+<!--2. Câu lệnh nào để nhận 1 giá trị từ 1 hộp thoại.
+Viết code nhận giá trị từ hộp thoại, hiển thị bình phương của số đó ra hộp thoại.-->
+<script>
+    let a = +Math.sqrt(x)
+    alert('Bình phương của ' + x + ' là' + a)
+</script>
+
+<!--3. Câu lệnh nào nhận vào giá trị từ 1 ô input. Viết code nhận a và b từ 2 ô input và hiển thị S = a*b ra thẻ h1.-->
+<input type="number" id="n1">
+<input type="number" id="n2">
+<button onclick="tich()">Tính tích</button>
+<br>
+<h1 id="rs"></h1>
+<script>
+    function tich() {
+        let a = +document.getElementById('n1').value;
+        let b = +document.getElementById('n2').value;
+        let s = a * b;
+        document.getElementById('rs').innerHTML = 'Tích bằng = ' + s;
+    }
+</script>
+
+<!--4.a. Viết chương trình nhập vào từ ô input, hiện kết quả ra thẻ p:-->
+<!--Nhập vào a, hiển thị ra chu vi và diện tích và hình vuông độ dài cạnh a-->
+<input type="number" id="canhhv">
+<button onclick="hinhVuong()">Tính chu vi</button>
+<button onclick="hinhVuong2()">Tính diện tích</button>
+<br>
+<p id="hv"></p>
+<script>
+    function hinhVuong() {
+        let r = +document.getElementById('canhhv').value;
+        let c = +r * 4;
+        document.getElementById('hv').innerHTML = 'Chu vi hình vuông là: ' + c;
+    }
+
+    function hinhVuong2() {
+        let r = +document.getElementById('canhhv').value;
+        let d = +r * r;
+        document.getElementById('hv').innerHTML = 'Diện tích hình vuông là: ' + d;
+    }
+</script>
+
+<!--4.b. Nhập vào a và b, tính a^2, a^b-->
+Nhập a: <input type="number" id="nhapA1">
+Nhập b: <input type="number" id="nhapB1">
+<button onclick="typeHere()">Kết quả</button>
+<br>
+<p id="kq1"></p>
+<br>
+<p id="kq2"></p>
+<script>
+    function typeHere() {
+        let a = +document.getElementById('nhapA').value;
+        let b = +document.getElementById('nhapB').value;
+        let bp = a * a;
+        let mu = Math.pow(a, b)
+        document.getElementById('kq1').innerHTML = "Bình phương của a là:" + bp;
+        document.getElementById('kq2').innerHTML = "Kết quả a mũ b là: " + mu;
+    }
+</script>
+
+<!--4.c. Nhập vào a và b, tính tổng các số từ a đến b-->
+Nhập a: <input type="number" id="nhapA">
+Nhập b: <input type="number" id="nhapB">
+<button onclick="typeHere()">Kết quả</button>
+<br>
+<strong><p id="tong"></p></strong>
+<script>
+    function typeHere() {
+        let a = +document.getElementById('nhapA').value;
+        let b = +document.getElementById('nhapB').value;
+        let count = b - a + 1;
+        let total = (a + b) * count / 2;
+        document.getElementById('tong').innerHTML = 'Tổng từ a đến b bằng: ' + total;
+    }
+</script>
+
+<!--4.d. Nhập vào a là năm, in ra thế kỉ.-->
+Nhập số năm: <input type="number" id="yr">
+<button onclick="typeYear()"> Đổi sang thế kỷ</button>
+<p id="kq"></p>
+<script>
+    function typeYear() {
+        let a = +document.getElementById('yr').value;
+        let t = a / 100;
+        document.getElementById('kq').innerHTML = +a + ' năm tương đương với ' + t + ' thế kỷ.'
+    }
+</script>
+
+<!--4.e.Nhập vào a, b, c, kiểm tra xem a, b, c có phải là 3 cạnh của:-->
+<!--1 tam giác?-->
+<!--1 tam giác cân?-->
+<!--1 tam giác đều?-->
+<!--1 tam giác vuông?-->
+Nhập a: <input type="number" id="soa">
+<br>
+<br>
+Nhập b: <input type="number" id="sob">
+<br>
+<br>
+Nhập c: <input type="number" id="soc">
+<br>
+<br>
+<button onclick="showResult()">Loại tam giác</button>
+<br>
+<p id="show"></p>
+<script>
+    function showResult() {
+        let a = +document.getElementById('soa').value;
+        let b = +document.getElementById('sob').value;
+        let c = +document.getElementById('soc').value;
+        if ((a + b > c) &&
+            (a + c > b) && (b + c > a)) {
+            document.getElementById('show').innerHTML = "a, b, c là 3 cạnh của một tam giác!";
+            if (a == b || a == c || b == c)
+                document.getElementById('show').innerHTML = "a, b, c là 3 cạnh của một tam giác cân!";
+            if (a == b && b == c)
+                document.getElementById('show').innerHTML = "a, b, c là 3 cạnh của một tam giác đều!";
+            if (a * a == b * b + c * c || b * b == a * a + c * c || c * c == a * a + b * b)
+                document.getElementById('show').innerHTML = "a, b, c là 3 cạnh của một tam giác vuông!";
+        } else
+            document.getElementById('show').innerHTML = "a, b, c không phải là 3 cạnh của một tam giác!";
+    }
+</script>
+</body>
+</html>
